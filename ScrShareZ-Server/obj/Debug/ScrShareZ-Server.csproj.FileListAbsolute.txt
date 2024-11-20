@@ -1,0 +1,15 @@
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\bin\Debug\ScrShareZ-Server.exe.config
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\bin\Debug\ScrShareZ-Server.exe
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\bin\Debug\ScrShareZ-Server.pdb
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ-Server.csproj.AssemblyReference.cache
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ_Server.Form1.resources
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ_Server.Properties.Resources.resources
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ-Server.csproj.GenerateResource.cache
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ-Server.csproj.CoreCompileInputs.cache
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ-Server.exe
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ-Server.pdb
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ_Server.Form2.resources
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\bin\Debug\ScrShareZ-Server.exe.manifest
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\bin\Debug\ScrShareZ-Server.application
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ-Server.exe.manifest
+C:\Users\huynh\source\repos\ScrShareZ-Server\ScrShareZ-Server\obj\Debug\ScrShareZ-Server.application

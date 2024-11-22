@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ScrShareZ-Server.exe" size="29104">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ScrShareZ-Server.exe" size="30128">
       <assemblyIdentity name="ScrShareZ-Server" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gfB7yhi+mu4MAELMwMs2/K5Jz4O4pAl2WyzLVGJ+hMg=</dsig:DigestValue>
+        <dsig:DigestValue>j6o0WeiNxW+hP8EGhY7O4rE4voE3y2F8rbzbOVYMi5c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

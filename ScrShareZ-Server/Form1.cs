@@ -108,7 +108,7 @@ namespace ScrShareZ_Server
             for (int i = 1; i < 255; i++)
             {
                 string ip = $"{subnet}.{i}";
-                tasks.Add(PingHostAsync(ip)); // Add the ping task to the list
+                tasks.Add(PingAndLookupHostAsync(ip)); // Add the ping and lookup task to the list
             }
 
             await Task.WhenAll(tasks); // Wait for all pinging tasks to complete
@@ -127,8 +127,8 @@ namespace ScrShareZ_Server
             return null;
         }
 
-        // Async ping task
-        private async Task PingHostAsync(string address)
+        // Async ping and host lookup task
+        private async Task PingAndLookupHostAsync(string address)
         {
             try
             {
@@ -137,10 +137,20 @@ namespace ScrShareZ_Server
                     PingReply reply = await ping.SendPingAsync(address, 100); // Use SendPingAsync for async ping
                     if (reply.Status == IPStatus.Success)
                     {
+                        string hostName = address;
+                        try
+                        {
+                            hostName = Dns.GetHostEntry(address).HostName; // Get hostname from IP
+                        }
+                        catch (Exception)
+                        {
+                            hostName = "Unknown Host"; // If lookup fails
+                        }
+
                         // Update UI on main thread
                         Invoke(new Action(() =>
                         {
-                            listBoxIPs.Items.Add(address); // Add reachable IP to the list box
+                            listBoxIPs.Items.Add($"{address} ({hostName})"); // Display IP and hostname
                         }));
                     }
                 }

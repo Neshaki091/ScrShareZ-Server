@@ -84,16 +84,33 @@ namespace ScrShareZ_Server
 
         private Label CreateClientIPLabel(TcpClient client)
         {
+            string hostName = string.Empty;
+
+            try
+            {
+                // Lấy địa chỉ IP từ TcpClient
+                string clientIP = ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString();
+
+                // Tra hostname từ IP
+                hostName = Dns.GetHostEntry(clientIP).HostName;
+            }
+            catch (Exception)
+            {
+                hostName = "Unknown Host";
+            }
+
             var label = new Label
             {
-                Text = ((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(),
+                Text = hostName,
                 Width = 300,
                 Height = 20,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BorderStyle = BorderStyle.FixedSingle
             };
+
             label.Left = 10 + (clientIPLabels.Count * 320);
             label.Top = 10;
+
             return label;
         }
 
@@ -143,20 +160,44 @@ namespace ScrShareZ_Server
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error receiving image: {ex.Message}");
+                // Xử lý lỗi khi nhận dữ liệu (client ngắt kết nối)
+                Console.WriteLine($"Error receiving image: {ex.Message}");
             }
             finally
             {
-                lock (clients)
-                {
-                    clients.Remove(client);
-                    clientStreams.Remove(stream);
-                    clientPictureBoxes.Remove(pictureBox);
-                    clientIPLabels.RemoveAt(clientIPLabels.Count - 1);
-                }
+                // Xử lý khi client ngắt kết nối
+                RemoveClientResources(client, pictureBox);
                 client.Close();
             }
         }
+
+        private void RemoveClientResources(TcpClient client, PictureBox pictureBox)
+        {
+            lock (clients)
+            {
+                int index = clients.IndexOf(client);
+                if (index >= 0)
+                {
+                    // Xóa client, stream, và điều khiển tương ứng khỏi danh sách
+                    clients.RemoveAt(index);
+                    clientStreams.RemoveAt(index);
+
+                    PictureBox pb = clientPictureBoxes[index];
+                    Label lbl = clientIPLabels[index];
+
+                    clientPictureBoxes.RemoveAt(index);
+                    clientIPLabels.RemoveAt(index);
+
+                    // Cập nhật giao diện để xóa PictureBox và Label
+                    Invoke(new Action(() =>
+                    {
+                        this.Controls.Remove(pb);
+                        this.Controls.Remove(lbl);
+                    }));
+                }
+            }
+        }
+
 
         private void StopListening()
         {
